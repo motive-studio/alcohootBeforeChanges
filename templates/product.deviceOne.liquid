@@ -1,0 +1,141 @@
+{% assign add_to_cart = 'Add to cart' %}
+{% assign sold_out = 'Sold Out' %}
+{% assign unavailable = 'Unavailable' %}
+<div class="mainHolder">
+  <div class="product" itemscope itemtype="http://schema.org/Product">
+    
+    <meta itemprop="url" content="{{ shop.url }}{{ product.url }}" />
+    <meta itemprop="image" content="{{ product | img_url: 'grande' }}" />
+    
+    <form action="/cart/add" method="post" enctype="multipart/form-data">
+      
+      <div class="product-photos">
+        <div class="product-photo-container">
+          <img class="blackDeviceSelected showImage" src="{{ 'alcohoot-tilted-black.png' | asset_url }}" id="productPhotoBlack">
+          <img class="redDeviceSelected" src="{{ 'alcohoot-tilted-red.png' | asset_url }}" id="productPhotoRed">
+          <img class="whiteDeviceSelected" src="{{ 'alcohoot-tilted-white.png' | asset_url }}" id="productPhotoWhite">
+        </div>
+      </div><!-- .product-photos -->
+      
+      <div class="product-details">
+        
+        <h1 itemprop="name">{{ product.title }}</h1>
+        <div id="product-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="delta">
+          <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
+          {% if product.available %}
+          <link itemprop="availability" href="http://schema.org/InStock" />
+          {% else %}
+          <link itemprop="availability" href="http://schema.org/OutOfStock" />
+          {% endif %}
+          <p>
+            {% assign variant = product.selected_or_first_available_variant %}
+            {% if product.compare_at_price > product.price %}
+            <span class="product-price on-sale" itemprop="price">{{ variant.price | money }}</span>
+            <s class="product-compare-price">{{ variant.compare_at_price | money }}</s>
+            {% else %}
+            <span class="product-price" itemprop="price">{{ variant.price | money }}</span>
+            {% endif %}
+          </p>
+        </div>
+        
+        <div id="product-description" class="rte" itemprop="description">
+          {{ product.description }}
+        </div>
+        
+        <div id="shopify-product-reviews" data-id="{{ product.id }}">{{ product.metafields.spr.reviews }}</div>
+        
+        
+        
+        {% assign hide_default_title = false %}
+        {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+          {% assign hide_default_title = true %}
+        {% endif %}       
+
+        <div class="cartAndProductSelect">
+          <div class="colorSelector">
+            <div class="color showImage" id="black">
+            </div>
+            <div class="color" id="red">
+            </div>
+            <div class="color" id="white">
+            </div>
+          </div> 
+          <form action="/cart/add" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="3841227460" id="variantIdInput">
+            <button type="submit" name="add" id="add" class="addToCartDirect">Add to Cart</button>
+          </form>    
+        </div>
+      
+      </div><!-- .product-details -->
+
+    </form>
+
+  </div>
+</div>
+
+
+<section class="included">
+  <div class="holder">
+    <p>Alcohoot is the world’s first law enforcement grade smartphone breathalyzer. The small device along with the Alcohoot mobile app enables you to test your blood alcohol level quickly, accurately, and easily. </p>
+    <div class="includedInfo">
+      <h4>INCLUDED:</h4>
+      <p>Alcohoot Mobile Breathalyzer<br>
+      USB Charging Cable<br>
+      Mouthpieces (8)</p>
+    </div>
+    <img src="{{ 'device-includes.png' | asset_url }}">
+  </div>
+</section>
+
+<section class="featuredProductPhotos">
+  <div class="featuredProductPhoto1">
+    <img src="{{ 'alcohootSixPack.jpg' | asset_url }}">
+  </div>
+  <div class="featuredProductPhoto2">
+    <img src="{{ 'featuredProduct2.png' | asset_url }}">
+  </div>
+</section>
+<div class="clear"></div>
+
+<section class="dontForget">
+<h2>Don't Forget</h2>
+</section>
+
+<script>
+var variantInput = $("#variantIdInput").val();
+console.log(variantInput);
+
+$("#red").click(function() {
+  console.log('red clicked');
+  variantInput = 3841227716;
+  console.log(variantInput);
+  $("#productPhotoRed").addClass('showImage');
+  $("#productPhotoBlack").removeClass("showImage");
+  $("#productPhotoWhite").removeClass("showImage");
+  $("#variantIdInput").val(variantInput);
+});
+
+$("#black").click(function() {
+  console.log('black clicked');
+  variantInput = 3841227460;
+  console.log(variantInput);
+  $("#productPhotoBlack").addClass("showImage");
+  $("#productPhotoRed").removeClass("showImage");
+  $("#productPhotoWhite").removeClass("showImage");
+  $("#variantIdInput").val(variantInput);
+});
+
+$("#white").click(function() {
+  console.log('white clicked');
+  variantInput = 3841227588;
+  console.log(variantInput);
+  $("#productPhotoWhite").addClass("showImage");
+  $("#productPhotoBlack").removeClass("showImage");
+  $("#productPhotoRed").removeClass("showImage");
+  $("#variantIdInput").val(variantInput);
+});
+
+Shopify.Image.preload({{ product.images | json }}, 'grande');
+Shopify.Image.preload({{ product.images | json }}, '1024x1024');
+
+</script>

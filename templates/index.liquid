@@ -1,0 +1,256 @@
+<section class="homeHero">
+  <h1>
+    World's most advanced<br>
+    <span>Smartphone<br>Breathalyzer</span>
+  </h1>
+  <div class="arrow_box"></div>
+  <img src="{{ 'alcohootBlackHero.png' | asset_url }}">
+</section>
+
+<div class="spotlight">
+  <section class="contentRight">
+    <div class="contentRightHolder mainHolder">
+      <img src="{{ 'blackDeviceReady.png' | asset_url }}">
+      <div class="clear"></div>
+      <div>
+        <h2>Designed for Accuracy</h2>
+        <p>Alcohoot is an easy, accurate tool to help you track your body's reaction to alcohol and become a smarter drinker. It uses an FDA-registered fuel cell sensor, the same technology used by police and military devices. Plug it right into your headphone jack, and you're ready to go. Learn your drinking habits, enhance your lifestyle.</p>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </section>
+
+  <section class="mainHolder">
+    <div class="threeHighlights">
+      <div class="highlight">
+        <img src="{{ 'alcohoot-jack-outline.png' | asset_url }}">
+        <h3>3.5m Headphone jack for compatibility</h3>
+        
+      </div>
+      <div class="highlight">
+        <img src="{{ 'alcohoot-shield-outline.png' | asset_url }}">
+        <h3>Law Enforcement Fuel Cell Technology</h3>
+        
+      </div>
+      <div class="highlight">
+        <img src="{{ 'alcohoot-device-outline.png' | asset_url }}">
+        <h3>Designed For <br>You</h3>
+        
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="contentLeft appFeature">
+  <div class="contentLeftHolder mainHolder">
+    <img src="{{ 'appMock2.png' | asset_url }}">
+    <div>
+      <h1>Drinking Analytics</h1>
+      <h4>Real Actionable Data</h4>
+      <p>SmartLine and the Morning quiz use algorithms to provide recommendations based on your drinking trends.</p>
+      <h4>Learn your Limits</h4>
+      <p>Integrate your actual data into future consumption.</p>
+      <h4>Stay Safe</h4>
+      <p> Data is only as good as the purpose it’s used for.</p>
+      <a href="/products/alcohoot-breathalyzer"><button>Buy Now</button></a>
+    </div>
+  </div>
+  <div class="clear"></div>
+</section>
+
+
+<section class="process">
+  <h1>Your Drinking Companion</h1>
+  <h2>
+    Quickly and accurately track your body's reaction to alcohol<br>
+    and become a smarter drinker.
+  </h2>
+  <div class="mainHolder steps">
+    <div class="step">
+      <img src="{{ 'attach-icon.png' | asset_url }}">
+      <h4>Attach</h4>
+      <p>
+        Plug Alcohoot into your smartphone headphone port.
+      </p>
+    </div>
+    <div class="progress">
+      <img src="{{ 'progressArrow.svg' | asset_url }}">
+    </div>
+    <div class="step">
+      <img src="{{ 'wind.svg' | asset_url }}">
+      <h4>Blow</h4>
+      <p>
+        Breathe into the Alcohoot device when the app says to begin.
+      </p>
+    </div>
+    <div class="progress">
+      <img src="{{ 'progressArrow.svg' | asset_url }}">
+    </div>
+    <div class="step">
+      <img src="{{ 'decideThumb.svg' | asset_url }}">
+      <h4>Know</h4>
+      <p>
+        Know your number and make the right call.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="contentRight">
+  <div class="contentRightHolder mainHolder">
+    <div class="clear"></div>
+    <div>
+      <h1>Highly Accurate.  Always Reliable.</h1>
+      <h2>Police Grade Precision</h2>
+      <p>Alcohoot uses the same Platinum Electrochemical Fuel Cell technology used in police breathalyzers. Knowing your BAC% helps you make informed decisions that affect you and those around you.</p>
+      <a href="/products/alcohoot-breathalyzer"><button>Buy Now</button></a>
+    </div>
+  </div>
+  <div class="clear"></div>
+</section>
+<div class="clear"></div>
+
+<section class="demo">
+  <div class="spacer"></div>
+  <div id="sceneTrigger" class="trigger"></div>
+  <div class="mainScene" id="scenePin">
+    
+    <div id="progressionText">
+      <p id="textOne"><span>1</span> Plug in Alcohoot</p>
+      <p id="textTwo"><span>2</span> Insert Mouthpiece</p>
+      <p id="textThree"><span>3</span> Blow into Mouthpiece</p>
+      <p id="textFour"><span>4</span> Analyze BAC. Drink Smarter.</p>
+    </div>
+
+    <div id="devicePin">
+      <img src="{{ 'Device-unlit.png' | asset_url }}" id="device" class="device">
+      <img src="{{ 'Device-jack.png' | asset_url }}" id="aux" class="aux">
+      <img src="{{ 'device-final.png' | asset_url }}" id="deviceLit" class="deviceLit">
+    </div>
+
+    <img src="{{ 'nexus4_portrait.png' | asset_url }}" id="phone" class="phone">
+
+    <img src="{{ 'mouthpiece.png' | asset_url }}" id="mouthpiece" class="mouthpiece">
+
+    <img src="{{ 'analyzeScreen.png' | asset_url }}" id="analyzeScreen" class="analyzeScreen">
+
+  </div>
+
+  <div class="spacer"></div>
+</section>
+
+
+{% include 'productHighlight' %}
+
+<a href="https://instagram.com/alcohoot/" target="_blank">
+  <section class="hashtag">
+    <p>join on instagram</p>
+    <h1>#knowyournumber</h1>
+  </section>
+</a>
+
+<section>
+    <div class="spotlightFullImage">
+    <img src="{{ 'socialProof.png' | asset_url }}">
+  </div>
+  </section>
+
+<script>
+    var controller = new ScrollMagic.Controller();
+    
+    // Start Main Scene
+    new ScrollMagic.Scene({duration: 2300, triggerElement: "#sceneTrigger", offset: -100})
+       .setPin("#scenePin")
+       .addTo(controller);
+
+    // Start TEXT display block
+    new ScrollMagic.Scene({triggerElement: "#sceneTrigger", duration: 100, offset: 100})
+       .setTween("#progressionText", 1, {display: "block"})
+       .addTo(controller);
+    // Start TEXT opacity 1
+    new ScrollMagic.Scene({triggerElement: "#sceneTrigger", duration: 200, offset: 150})
+       .setTween("#progressionText p", 1, {opacity: 1})
+       .addTo(controller);
+
+    // Start Device Animation
+    var deviceTween = new TweenMax.to('#device', 1, {
+       rotation: 90,
+       x: 200,
+       y: 100,
+       width: 200
+    });
+
+    new ScrollMagic.Scene({triggerElement: "#sceneTrigger", 
+      duration: 200, 
+      offset: 200})
+       .setTween(deviceTween)
+       .addTo(controller);
+
+    var deviceTweenLit = new TweenMax.to('#deviceLit', 1, {
+       opacity: 1
+    });
+
+    new ScrollMagic.Scene({triggerElement: "#sceneTrigger", 
+      duration: 200, 
+      offset: 1700})
+       .setTween(deviceTweenLit)
+       .addTo(controller);
+    
+
+    
+
+    // Start Aux Animation
+    new ScrollMagic.Scene({triggerElement: "#sceneTrigger", duration: 400, offset: 400})
+       .setTween("#aux", 1, {paddingTop: "0", y: 60, opacity: 5})
+       .addTo(controller);
+    // Start Aux TEXT Animation
+    new ScrollMagic.Scene({triggerElement: "#sceneTrigger", duration: 200, offset: 600})
+       .setTween("#textOne", 1, {color: "#87BEE0"})
+       .addTo(controller);
+
+    // Start Phone Animation
+    new ScrollMagic.Scene({triggerElement: "#sceneTrigger", duration: 600, offset: 800})
+       .setTween("#phone", 1, {paddingTop: "0", y: -40})
+       .addTo(controller);
+
+    // Start Mouthpiece Animation
+    new ScrollMagic.Scene({triggerElement: "#sceneTrigger", duration: 400, offset: 1400})
+       .setTween("#mouthpiece", 1, {x: -450, opacity: 1})
+       .addTo(controller);
+    // Start Mouthpiece TEXT Animation
+    new ScrollMagic.Scene({triggerElement: "#sceneTrigger", duration: 200, offset: 1400})
+       .setTween("#textTwo", 1, {color: "#87BEE0"})
+       .addTo(controller);
+
+    // Start Blow TEXT Animation
+    new ScrollMagic.Scene({triggerElement: "#sceneTrigger", duration: 400, offset: 1700})
+       .setTween("#textThree", 1, {color: "#87BEE0"})
+       .addTo(controller);
+
+    // Start Analyze Animation
+    new ScrollMagic.Scene({triggerElement: "#sceneTrigger", duration: 200, offset: 2100})
+       .setTween("#analyzeScreen", 1, {opacity: 1})
+       .addTo(controller);
+    // Start Analyze TEXT Animation
+    new ScrollMagic.Scene({triggerElement: "#sceneTrigger", duration: 200, offset: 2100})
+       .setTween("#textFour", 1, {color: "#87BEE0"})
+       .addTo(controller);
+
+
+    // Start TEXT opacity fade 0
+    new ScrollMagic.Scene({triggerElement: "#sceneTrigger", duration: 200, offset: 2500})
+       .setTween("#progressionText p", 1, {opacity: 0})
+       .addTo(controller);
+
+    // Start Fade TEXT display none
+    new ScrollMagic.Scene({triggerElement: "#sceneTrigger", duration: 200, offset: 2600})
+       .setTween("#progressionText", 1, {display: "none"})
+       .addTo(controller);
+
+
+
+
+
+  </script>
+
+
